@@ -1,0 +1,300 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  :root {
+    /* Modern Vibrant Palette */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    
+    /* Primary Colors - Vibrant Teal */
+    --primary: 180 100% 35%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary Colors - Soft Purple */
+    --secondary: 270 50% 96%;
+    --secondary-foreground: 270 50% 20%;
+    
+    /* Accent Colors - Coral */
+    --accent: 350 100% 65%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Card & Popover */
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    
+    /* Muted Colors */
+    --muted: 220 20% 96%;
+    --muted-foreground: 220 20% 40%;
+    
+    /* Status Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Border & Input */
+    --border: 220 20% 90%;
+    --input: 220 20% 90%;
+    --ring: 180 100% 35%;
+    
+    /* Chart Colors */
+    --chart-1: 180 100% 35%;  /* Teal */
+    --chart-2: 350 100% 65%;  /* Coral */
+    --chart-3: 270 50% 60%;   /* Purple */
+    --chart-4: 45 100% 65%;   /* Gold */
+    --chart-5: 150 100% 35%;  /* Mint */
+    
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Dark Mode Palette */
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    
+    /* Primary Colors - Bright Teal */
+    --primary: 180 100% 45%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary Colors - Deep Purple */
+    --secondary: 270 50% 20%;
+    --secondary-foreground: 270 50% 96%;
+    
+    /* Accent Colors - Bright Coral */
+    --accent: 350 100% 70%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Card & Popover */
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    
+    /* Muted Colors */
+    --muted: 220 20% 20%;
+    --muted-foreground: 220 20% 80%;
+    
+    /* Status Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Border & Input */
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 180 100% 45%;
+    
+    /* Chart Colors - Brighter versions for dark mode */
+    --chart-1: 180 100% 45%;  /* Bright Teal */
+    --chart-2: 350 100% 70%;  /* Bright Coral */
+    --chart-3: 270 50% 70%;   /* Bright Purple */
+    --chart-4: 45 100% 70%;   /* Bright Gold */
+    --chart-5: 150 100% 45%;  /* Bright Mint */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .gradient {
+    @apply bg-gradient-to-br from-[hsl(var(--primary))] via-[hsl(var(--accent))] to-[hsl(var(--chart-3))];
+  }
+  .gradient-title {
+    @apply pb-2 pr-2 font-extrabold tracking-tighter text-transparent gradient bg-clip-text;
+  }
+}
+
+/* Smooth Animations */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  .animate-scale {
+    animation: scale 0.3s ease-in-out;
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce 2s infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scale {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-5%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Smooth Transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Glass Effect */
+.glass {
+  @apply border shadow-lg bg-white/80 backdrop-blur-md border-white/20;
+}
+
+/* Card Hover Effects */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+}
+
+/* Button Hover Effects */
+.button-hover {
+  @apply transition-all duration-300 hover:scale-105 active:scale-95;
+}
+
+/* Gradient Animation */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientMove 3s ease infinite;
+}
+
+/* Shimmer Effect */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.hero-image-wrapper {
+  perspective: 1000px;
+}
+
+.hero-image {
+  /* transform: rotateX(20deg) scale(0.9) translateY(-50); */
+  transform: rotateX(15deg) scale(1);
+  transition: transform 0.5s ease-out;
+  will-change: transform;
+}
+
+.hero-image.scrolled {
+  transform: rotateX(0deg) scale(1) translateY(40px);
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Add this class */
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientMove 3s ease infinite;
+}
