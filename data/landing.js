@@ -92,8 +92,7 @@ export const testimonialsData = [
     role: "Small Business Owner",
     image: "https://randomuser.me/api/portraits/women/75.jpg",
     quote:
-      "Welth has transformed how I manage my business finances. The AI insights have helped me identify cost-saving opportunities I never knew existed.",
-  },
+      "This AI-powered finance management platform has completely changed how I handle my budget. The interface is clean and intuitive, making it easy to track my expenses and savings."
   {
     name: "Michael Chen",
     role: "Freelancer",
@@ -106,6 +105,6 @@ export const testimonialsData = [
     role: "Financial Advisor",
     image: "https://randomuser.me/api/portraits/women/74.jpg",
     quote:
-      "I recommend Welth to all my clients. The multi-currency support and detailed analytics make it perfect for international investors.",
+      "I recommend it to all my clients. The website helps a lot with time management.",
   },
 ];
