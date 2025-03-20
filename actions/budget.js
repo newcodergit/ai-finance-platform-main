@@ -3,6 +3,7 @@
 import { db } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
+import { sendBudgetAlert } from "@/lib/email-alerts"; // Import the sendBudgetAlert function
 
 export async function getCurrentBudget(accountId) {
   try {
@@ -51,11 +52,21 @@ export async function getCurrentBudget(accountId) {
       },
     });
 
+    const currentExpenses = expenses._sum.amount
+      ? expenses._sum.amount.toNumber()
+      : 0;
+
+    // Calculate the percentage of the budget used
+    const percentageUsed = budget ? (currentExpenses / budget.amount.toNumber()) * 100 : 0;
+
+    // Send an alert if the budget exceeds 90%
+    if (percentageUsed > 90) {
+      await sendBudgetAlert(user.id, accountId, currentExpenses, budget.amount.toNumber());
+    }
+
     return {
       budget: budget ? { ...budget, amount: budget.amount.toNumber() } : null,
-      currentExpenses: expenses._sum.amount
-        ? expenses._sum.amount.toNumber()
-        : 0,
+      currentExpenses,
     };
   } catch (error) {
     console.error("Error fetching budget:", error);

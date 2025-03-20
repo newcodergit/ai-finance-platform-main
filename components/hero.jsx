@@ -111,12 +111,12 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
         >
-          <Link href="/dashboard">
+          <Link href="/premium-plan">
             <Button 
               size="lg" 
               className="px-8 m-8 button-hover bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary)/0.9)] dark:bg-[hsl(var(--primary)/0.9)] dark:hover:bg-[hsl(var(--primary))] relative overflow-hidden group"
             >
-              <span className="relative z-10 ">Get Started</span>
+              <span className="relative z-10 ">View Premium Plan</span>
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--accent))] to-[hsl(var(--primary))] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 initial={{ x: "-100%" }}
