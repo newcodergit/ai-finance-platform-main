@@ -93,6 +93,7 @@ export const testimonialsData = [
     image: "https://randomuser.me/api/portraits/women/75.jpg",
     quote:
       "This AI-powered finance management platform has completely changed how I handle my budget. The interface is clean and intuitive, making it easy to track my expenses and savings."
+    },
   {
     name: "Michael Chen",
     role: "Freelancer",

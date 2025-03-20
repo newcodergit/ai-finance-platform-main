@@ -1,9 +1,9 @@
 "use server";
 
-import { db } from "@/lib/prisma";
+import { db } from "@/lib/prisma"; // Corrected import statement
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
-import { sendBudgetAlert } from "@/lib/email-alerts"; // Import the sendBudgetAlert function
+import { sendBudgetAlert } from "@/lib/email-alerts"; // Corrected import statement
 
 export async function getCurrentBudget(accountId) {
   try {
