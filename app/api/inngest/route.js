@@ -1,13 +1,12 @@
 import { serve } from "inngest/next";
 
-import { inngest } from "@/lib/inngest";
-import { sendEmail } from "@/lib/email";
+
 import {
   checkBudgetAlerts,
   generateMonthlyReports,
   processRecurringTransaction,
   triggerRecurringTransactions,
-} from "@/lib/inngest/function";
+} from "../../../lib/inngest/function"; // Corrected import statement
 
 // Create an Inngest function for sending welcome emails
 export const sendWelcomeEmail = inngest.createFunction(
