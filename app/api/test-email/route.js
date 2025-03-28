@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { sendEmail } from "../../../actions/send-email"; // Ensure sendEmail is imported
+
 
 
 export async function POST(req) {
@@ -15,8 +17,10 @@ export async function POST(req) {
       `,
     });
 
-    // Test Inngest function
-    const inngestResult = await inngest.send({
+    // Test Inngest function (ensure inngest is defined)
+
+    const inngestResult = await inngest.send({ // Ensure inngest is defined
+
       name: "Send Welcome Email",
       data: { email },
     });
@@ -33,4 +37,4 @@ export async function POST(req) {
       { status: 500 }
     );
   }
-} 
+}
